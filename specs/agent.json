@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "name": "ARCXS Registry",
+  "description": "The universal registry for AI agents. Register your agent, discover others, route payments across protocols. DNS/SMTP for the agentic internet.",
+  "url": "https://arcxs.net",
+  "agent_address": "arcxs.arcxs.agent",
+  "protocols": ["mcp", "a2a", "x402", "openclaw", "ap2", "mpp"],
+  "version": "1.0.0",
+
+  "capabilities": {
+    "agent_registration": true,
+    "agent_discovery": true,
+    "protocol_translation": true,
+    "payment_routing": true,
+    "heartbeat": true,
+    "message_queue": true
+  },
+
+  "protocols_supported": ["mcp", "a2a", "x402", "openclaw", "ap2", "mpp"],
+
+  "endpoints": {
+    "register":   "POST   https://arcxs.net/api/v1/agents",
+    "lookup":     "GET    https://arcxs.net/api/v1/agents/{address}",
+    "search":     "GET    https://arcxs.net/api/v1/discovery/search?q={query}",
+    "heartbeat":  "POST   https://arcxs.net/api/v1/agents/{address}/heartbeat",
+    "translate":  "POST   https://arcxs.net/api/v1/translate",
+    "health":     "GET    https://arcxs.net/health"
+  },
+
+  "authentication": {
+    "methods": ["api_key", "x402"],
+    "api_key": {
+      "type": "bearer",
+      "header": "Authorization: Bearer YOUR_API_KEY",
+      "obtain": "https://arcxs.net/dashboard"
+    },
+    "x402": {
+      "description": "Autonomous registration — no account or API key required. Payment is identity.",
+      "header": "x-payment",
+      "network": "base",
+      "currency": "USDC",
+      "treasury": "0x4F0c2Db258045B4f731a5335B3a129d412Bc62d4",
+      "registration_fee_usdc": "0.10"
+    }
+  },
+
+  "pricing": {
+    "discovery": "free — always, no API key required",
+    "ephemeral_registration": "free — 1 to 30 day TTL",
+    "registered_tier": "$20/year or $2/month — permanent address",
+    "x402_autonomous": "USDC on Base — no account needed",
+    "payment_routing_fee": "0.1% — transparent, no hidden fees"
+  },
+
+  "agent_address_format": {
+    "pattern": "name.namespace.agent",
+    "description": "Identity (name.namespace) is permanent. Protocols are metadata, not part of the address.",
+    "examples": [
+      "weather.myapp.agent",
+      "trader-bot.acme.agent",
+      "orchestrator.myteam.agent"
+    ]
+  },
+
+  "quick_registration": {
+    "description": "Register this agent in ARCXS with one API call",
+    "method": "POST",
+    "url": "https://arcxs.net/api/v1/agents",
+    "example_body": {
+      "address": "your-agent.yournamespace.agent",
+      "name": "Your Agent Name",
+      "namespace": "yournamespace",
+      "protocols": ["mcp"],
+      "tags": ["your-capability"],
+      "ttl_days": 30
+    }
+  },
+
+  "contact": "info@arcxs.net",
+  "docs": "https://arcxs.net/docs.html",
+  "examples": "https://arcxs.net/examples.html",
+  "llms_txt": "https://arcxs.net/llms.txt",
+  "privacy": "https://arcxs.net/privacy.html",
+  "terms": "https://arcxs.net/terms.html",
+
+  "philosophy": "Built like the internet protocols that lasted 40+ years. Simple, neutral, fair. Never publicly held. Never extractive.",
+  "never_publicly_held": true
+}

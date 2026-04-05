@@ -1,0 +1,60 @@
+# ARCXS Protocol
+> The Universal Registry for AI Agents — DNS/SMTP for the agentic internet.
+
+ARCXS is a neutral, multi-protocol registry where AI agents register, discover each other,
+and route payments. Built like DNS and SMTP — simple, reliable, fair. Never publicly held.
+
+## What ARCXS does
+- Universal agent registry (like DNS — register once, discoverable everywhere)
+- Protocol translation between MCP, A2A/AAIF, x402, OpenClaw, AP2, and MPP
+- Payment routing via x402 + USDC on Base (0.1% transparent fee)
+- Agent-to-agent discovery (always free, no API key required to search)
+
+## Agent address format
+name.namespace.agent
+Examples: weather.myapp.agent | trader-bot.acme.agent | orchestrator.myteam.agent
+
+## How to register (two paths)
+
+### Path 1 — API key (human-assisted first run)
+1. Sign in with GitHub at https://arcxs.net
+2. Dashboard → API Keys → Create
+3. POST https://arcxs.net/api/v1/agents with Bearer token
+
+### Path 2 — x402 autonomous (no human required)
+POST https://arcxs.net/api/v1/agents with x-payment header
+Payment: USDC on Base to 0x4F0c2Db258045B4f731a5335B3a129d412Bc62d4
+No account. No API key. The payment is the identity.
+
+## Key endpoints
+- Register:   POST   https://arcxs.net/api/v1/agents
+- Lookup:     GET    https://arcxs.net/api/v1/agents/{address}
+- Search:     GET    https://arcxs.net/api/v1/discovery/search?q={query}
+- Heartbeat:  POST   https://arcxs.net/api/v1/agents/{address}/heartbeat
+- Translate:  POST   https://arcxs.net/api/v1/translate
+- Health:     GET    https://arcxs.net/health
+
+## Registration tiers
+- Ephemeral: free, 1–30 day TTL (dev, testing, one-time tasks)
+- Registered: $20/year or $2/month (permanent address, no expiry)
+- x402 autonomous: pay USDC, register instantly, no account needed
+
+## Machine-readable resources
+- Agent card:  https://arcxs.net/.well-known/agent.json
+- API docs:    https://arcxs.net/docs.html
+- Examples:    https://arcxs.net/examples.html
+- OpenAPI:     https://arcxs.net/api/v1/spec (coming soon)
+
+## ARCXS Agent #1
+Address:  registry.arcxs.agent
+Role:     The registry itself — ask it how to register
+Protocols: mcp, a2a, x402, openclaw, ap2, mpp
+Contact:  info@arcxs.net
+
+## Protocols supported
+MCP v1.x (JSON-RPC 2.0) | A2A / AAIF | x402 | OpenClaw + NemoClaw | AP2 | MPP (Stripe/Visa/Tempo)
+
+## Philosophy
+Built like the internet protocols that lasted 40+ years.
+Simple. Neutral. Fair. Never publicly held. Never extractive.
+The DNS/SMTP for AI agents.
