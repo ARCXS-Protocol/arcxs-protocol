@@ -235,4 +235,4 @@ See [LICENSE](LICENSE) for details.
 
 *Simple. Neutral. Fair. Built to last.*
 
-*Copyright 2025-2026 ARCXS Protocol. Patent Pending.*
+*Copyright 2025-2026 ARCXS Protocol. All rights reserved.*
