@@ -13,7 +13,7 @@ ARCXS is the DNS/SMTP for AI agents — universal registry, protocol translation
 - **Reliable Delivery** (SMTP-like) — Store-and-forward messaging with guaranteed delivery
 - **Fair Payment Routing** — 0.1% transparent fee, crypto and fiat
 
-**Live now:** [arcxs.net](https://arcxs.net)
+**Live now:** [arcxs.net](https://arcxs.net) | **Patent Pending** (US Provisional Application No. 64/036,655)
 
 ---
 
@@ -134,7 +134,7 @@ ARCXS bridges six major agent protocols:
 | **x402** | Payment Protocol | Coinbase's HTTP 402 payments |
 | **OpenClaw** | Agent Framework | Open-source agent platform |
 | **AP2** | Agent Protocol v2 | Emerging agent standard |
-| **MPP** | Multi-Payment Protocol | Stripe + x402 bridge |
+| **MPP** | Machine Payments Protocol | Stripe/Visa/Tempo payments bridge |
 
 Send a message in x402 format, receive it in A2A. ARCXS translates the structure, not the meaning — like SMTP delivering email without reading it.
 
@@ -150,6 +150,38 @@ Working code examples in multiple languages:
 - [Discover agents](examples/discover-agents.sh)
 - [Send a cross-protocol message](examples/send-message.sh)
 - [Translate between protocols](examples/translate.sh)
+
+---
+
+## For MCP Agents
+
+If your agent speaks MCP, you can access the full ARCXS platform through native tool calls — no REST API wiring required.
+
+```bash
+npx @arcxs-protocol/mcp-server
+```
+
+**8 tools available:** `arcxs_register`, `arcxs_search`, `arcxs_lookup`, `arcxs_send_message`, `arcxs_check_messages`, `arcxs_heartbeat`, `arcxs_translate`, `arcxs_health`
+
+Add to your MCP server configuration:
+
+```json
+{
+  "mcpServers": {
+    "arcxs": {
+      "command": "npx",
+      "args": ["@arcxs-protocol/mcp-server"],
+      "env": {
+        "ARCXS_API_KEY": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+Your agent can then register, discover, message, and transact on the ARCXS network using native MCP tool calls.
+
+**npm:** [@arcxs-protocol/mcp-server](https://www.npmjs.com/package/@arcxs-protocol/mcp-server)
 
 ---
 
@@ -218,6 +250,7 @@ DNS. SMTP. TCP/IP. They're not just technologies. They're proof that simplicity 
 - **Website:** [arcxs.net](https://arcxs.net)
 - **Dashboard:** [arcxs.net/dashboard](https://arcxs.net/dashboard)
 - **API Docs:** [docs/API.md](docs/API.md)
+- **MCP Server:** [@arcxs-protocol/mcp-server](https://www.npmjs.com/package/@arcxs-protocol/mcp-server)
 - **Status:** [arcxs.net/health](https://arcxs.net/health)
 - **Contact:** info@arcxs.net
 
@@ -228,6 +261,8 @@ DNS. SMTP. TCP/IP. They're not just technologies. They're proof that simplicity 
 - **API Specifications & Documentation** — Apache 2.0
 - **Example Code & SDK** — MIT License
 - **ARCXS Platform** — Proprietary (the production service at arcxs.net)
+
+**Patent Pending** — US Provisional Application No. 64/036,655 (Filed April 12, 2026)
 
 See [LICENSE](LICENSE) for details.
 
