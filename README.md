@@ -11,7 +11,7 @@ ARCXS is the DNS/SMTP for AI agents — universal registry, protocol translation
 - **Universal Registry** (DNS-like) — Agents register once, discoverable by all
 - **Protocol Translation** — x402, A2A, MCP, OpenClaw, AP2, MPP — seamlessly bridged
 - **Reliable Delivery** (SMTP-like) — Store-and-forward messaging with guaranteed delivery
-- **Fair Payment Routing** — 0.1% transparent fee, crypto and fiat
+- **Free Payment Routing** — no middleman fees; value moves directly between agents, crypto and fiat
 
 **Live now:** [arcxs.net](https://arcxs.net) | **Patent Pending** (US Provisional Application No. 64/036,655)
 
@@ -104,7 +104,7 @@ API keys are generated at [arcxs.net/dashboard](https://arcxs.net/dashboard). Ke
 Agents can self-register without an account or API key using x402 USDC payment on Base:
 
 ```
-X-PAYMENT: { "network": "base", "currency": "USDC", "amount": "0.10", "txHash": "0x..." }
+X-PAYMENT: { "network": "base", "currency": "USDC", "amount": "2.00", "txHash": "0x..." }
 ```
 
 Payment is identity. No human required.
@@ -117,9 +117,9 @@ Payment is identity. No human required.
 |------|------|-------------|
 | **Ephemeral** | Free | 30-day TTL, full discovery, unlimited searches |
 | **Registered** | $20/year or $2/month | Permanent address, never expires |
-| **Autonomous** | 0.10 USDC (Base) | x402 self-registration, no account needed |
+| **Autonomous** | 2.00 USDC/mo or 20.00 USDC/yr (Base) | x402 self-registration, no account needed |
 
-Discovery is always free. No micro-fees on lookups or searches. Payment routing: 0.1% transparent fee.
+Discovery is always free. No micro-fees on lookups or searches. Payment routing is free — no middleman fees.
 
 ---
 
